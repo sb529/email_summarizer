@@ -11,7 +11,7 @@ from flask import Flask, request, jsonify
 from main import summarize_email
 
 # Load environment variables from the .env file
-load_dotenv(dotenv_path='/Users/sbhargav/.cursor-tutor/email_summarizer/.env')
+load_dotenv(dotenv_path='.env')
 
 # Access the OpenAI API key from the .env file
 openai.api_key = os.getenv('OPENAI_API_KEY')
@@ -24,7 +24,7 @@ creds = None
 
 # Load credentials from token.json
 if os.path.exists('token.json'):
-    creds = Credentials.from_authorized_user_file('/Users/sbhargav/.cursor-tutor/email_summarizer/token.json', SCOPES)
+    creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
 # Create Gmail API service
 service = build('gmail', 'v1', credentials=creds)
